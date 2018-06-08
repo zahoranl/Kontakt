@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Kontakt.Views.MainPage"
+             Title="Contacts"
+             xmlns:c="clr-namespace:Kontakt.Converters"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             BackgroundImage="drawable/background.jpg">
+
+    <!--<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+    </StackLayout>-->
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <c:ConvertListSelectionToPerson x:Key="ConverterListSelection"/>
+            <Style x:Key="nameStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="17"/>
+                <Setter Property="FontFamily" Value="Italic"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="Margin" Value="20"/>
+            </Style>
+            <Style x:Key="numberStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Italic"/>
+                <Setter Property="TextColor" Value="Gray"/>
+                <Setter Property="Margin" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ListView ItemsSource="{x:Binding Contacts}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Label Text="{Binding Name}" Margin="5,5,5,5" VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding Number}" Style="{x:StaticResource numberStyle}"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        <ListView.Behaviors>
+            <b:EventToCommandBehavior EventName="ItemTapped" 
+                                      Command="{Binding NavigateToDetailsPageCommand}"
+                                      EventArgsConverter="{StaticResource ConverterListSelection}"/>
+        </ListView.Behaviors>
+        
+    </ListView>
+    
+</ContentPage>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Kontakt.Views.DetailsPage"
+              Title="{Binding Contact.Name}"
+             BackgroundImage="drawable/background.jpg">
+
+    <ScrollView>
+        <Grid>
+            <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="100" />
+                     <ColumnDefinition Width="*" />
+                 </Grid.ColumnDefinitions>
+
+       
+                <Image Grid.Row="0" Grid.Column="0" Source="drawable/person.png" />
+        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Contact.Name}" />
+
+
+                <Image Grid.Row="1" Grid.Column="0" Source="drawable/company.png"/>
+        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Contact.Company}" />
+
+        
+                <Image Grid.Row="2" Grid.Column="0" Source="drawable/phone.png"/>
+        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Contact.Number}" />
+
+        
+                <Image Grid.Row="3" Grid.Column="0" Source="drawable/email.png"/>
+        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Contact.Email}" />
+
+                <Image Grid.Row="4" Grid.Column="0" Source="drawable/git.png"/>
+        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Contact.Github}" />
+
+               
+                <Image Grid.Row="5" Grid.Column="0" Source="drawable/face.png"/>
+        <Label Grid.Row="5" Grid.Column="1" Text="{Binding Contact.Facebook}" />
+
+ 
+                <Image Grid.Row="6" Grid.Column="0" Source="drawable/insta.png"/>
+        <Label Grid.Row="6" Grid.Column="1" Text="{Binding Contact.Instagram}" />
+
+        
+                <Image Grid.Row="7" Grid.Column="0" Source="drawable/birth.png"/>
+        <Label Grid.Row="7" Grid.Column="1" Text="{Binding Contact.Birthday}" />
+    </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>
